@@ -1,5 +1,7 @@
 WebsiteManagement::Application.routes.draw do
 
+  devise_for :clients
+
   get "home/index"
 
   root :to => "home#index"
