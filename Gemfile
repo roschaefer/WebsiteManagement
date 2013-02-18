@@ -1,5 +1,21 @@
 source 'https://rubygems.org'
 
+
+# -------------------------
+# custom gems
+# -------------------------
+gem 'therubyracer'
+
+group :development, :test do
+  # gem "rspec-rails", ">= 2.0.1"
+  gem 'cucumber-rails'
+  # gem 'database_cleaner'
+end
+
+# -------------------------
+
+
+
 gem 'rails', '3.2.12'
 
 # Bundle edge Rails instead:
@@ -37,4 +53,3 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 
-gem 'therubyracer'
