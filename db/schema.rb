@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(:version => 20130218221446) do
 
-  create_table "clients", :force => true do |t|
+  create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
@@ -36,10 +36,10 @@ ActiveRecord::Schema.define(:version => 20130218221446) do
     t.datetime "updated_at",                             :null => false
   end
 
-  add_index "clients", ["authentication_token"], :name => "index_clients_on_authentication_token", :unique => true
-  add_index "clients", ["confirmation_token"], :name => "index_clients_on_confirmation_token", :unique => true
-  add_index "clients", ["email"], :name => "index_clients_on_email", :unique => true
-  add_index "clients", ["reset_password_token"], :name => "index_clients_on_reset_password_token", :unique => true
-  add_index "clients", ["unlock_token"], :name => "index_clients_on_unlock_token", :unique => true
+  add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
+  add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
 
 end

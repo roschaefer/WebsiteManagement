@@ -1,6 +1,6 @@
 WebsiteManagement::Application.routes.draw do
 
-  devise_for :clients
+  devise_for :users
 
   get "home/index"
 
