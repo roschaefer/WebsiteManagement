@@ -1,2 +1,14 @@
 <h1>Website Management</h1>
 <p>Welcome!</p>
+
+
+
+<% if user_signed_in? %>
+  <li>
+  <%= button_to 'My Profile', user_path(current_user), :method => :get %>        
+  </li>
+<% else %>
+  <li>
+  <%= button_to 'Log In', new_user_session_path, :method => :get %>  
+  </li>
+<% end %>
