@@ -12,5 +12,6 @@ class User < ActiveRecord::Base
 
 
   ###
+  ROLES = %w[admin client]
   attr_accessible :name
 end
