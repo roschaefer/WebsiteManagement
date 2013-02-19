@@ -30,14 +30,14 @@ class Ability
     # https://github.com/ryanb/cancan/wiki/Defining-Abilities
 
 
-  user ||= User.new # guest user
-  if user.role? :admin
-    can :manage, :all
-  elsif user.role? :client
-    can :read, :all  # appropriate role authorization here
-  else
-    can :read, :all
-  end
+    user ||= User.new # guest user
+    if user.role == "admin"
+      can :manage, :all
+    elsif user.role == "client"
+      can :read, :all  # appropriate role authorization here
+    else
+      can :read, :all
+    end
 
 
 
