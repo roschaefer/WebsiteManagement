@@ -5,9 +5,10 @@ FactoryGirl.define do
     role                  "client"
     password              "secret1234"
     password_confirmation "secret1234"
-    after(:create) do |user|
-      user.confirm!
-    end
+    #after(:create) do |user|
+      #user.confirm!
+    #end
+    confirmed_at          Time.now
   end
 
 
@@ -17,8 +18,9 @@ FactoryGirl.define do
     role                  "admin"
     password              "secret1234"
     password_confirmation "secret1234"
-    after(:create) do |admin|
-      admin.confirm!
-    end
+    #after(:create) do |admin|
+      #admin.confirm!
+    #end
+    confirmed_at          Time.now
   end
 end
