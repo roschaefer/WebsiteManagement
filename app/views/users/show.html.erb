@@ -1,2 +1,18 @@
 <h1><%= @user.name %></h1>
-<p>Find me in app/views/users/show.html.erb</p>
+
+
+<h3>My Websites</h>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Link</th>
+  </tr>
+
+<% @websites.each do |website| %>
+  <tr>
+    <td><%= website.name%></td>
+    <td><%= website.folder%></td>
+  </tr>
+<% end %>
+</table>

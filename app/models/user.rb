@@ -14,4 +14,5 @@ class User < ActiveRecord::Base
   ###
   ROLES = %w[admin client]
   attr_accessible :name
+  has_many :websites
 end
