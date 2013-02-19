@@ -16,6 +16,8 @@ end
 gem 'devise'
 gem 'cancan'
 
+# static files
+gem 'high_voltage'
 # -------------------------
 
 

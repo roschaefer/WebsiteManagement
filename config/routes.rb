@@ -7,6 +7,9 @@ WebsiteManagement::Application.routes.draw do
 
   root :to => "home#index"
 
+  ### high_voltage routes
+  match "/websites/:website_folder/*id" => 'websites#show', :as => :website, :format => false
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
