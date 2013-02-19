@@ -16,6 +16,9 @@ end
 gem 'devise'
 gem 'cancan'
 
+# backend
+gem 'activeadmin'
+
 # -------------------------
 
 
