@@ -34,9 +34,9 @@ class Ability
     if user.role? :admin
       can :manage, :all
     elsif user.role? :client
-      can :read, :all  # appropriate role authorization here
+      can :read, User, :id => user.id
     else
-      can :read, :all
+      # everything restricted by default
     end
 
 
