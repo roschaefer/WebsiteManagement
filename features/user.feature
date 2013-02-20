@@ -4,7 +4,7 @@ Feature: Manage Users
   I want to see user profiles only when authorized
 
     Scenario: Show profile
-        Given the following user records
+        Given the following users exist
           | name  | email             | role   |
           | bob   | bob@example.com   | client |
           | alice | alice@example.com | client |
