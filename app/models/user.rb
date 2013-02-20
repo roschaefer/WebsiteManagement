@@ -12,7 +12,13 @@ class User < ActiveRecord::Base
 
 
   ###
-  ROLES = %w[admin client]
+  ROLES = %w[client admin]
   attr_accessible :name, :role
   has_many :websites
+  validates :name, :presence => true
+
+  def role?(base_role)
+    return false unless role # A user have a role attribute. If not set, the user does not have any roles.
+    ROLES.index(base_role.to_s) <= ROLES.index(role)
+  end
 end

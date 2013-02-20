@@ -10,6 +10,8 @@ group :development, :test do
   gem "rspec-rails", ">= 2.0.1"
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'pickle'
 end
 
 # authentication
@@ -18,6 +20,12 @@ gem 'cancan'
 
 # static files
 gem 'high_voltage'
+
+# backend
+gem 'activeadmin'
+
+
+
 # -------------------------
 
 

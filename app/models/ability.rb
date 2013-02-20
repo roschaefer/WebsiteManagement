@@ -31,12 +31,12 @@ class Ability
 
 
     user ||= User.new # guest user
-    if user.role == "admin"
+    if user.role? :admin
       can :manage, :all
-    elsif user.role == "client"
-      can :read, :all  # appropriate role authorization here
+    elsif user.role? :client
+      can :read, User, :id => user.id
     else
-      can :read, :all
+      # everything restricted by default
     end
 
 
