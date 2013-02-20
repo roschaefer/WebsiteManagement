@@ -6,3 +6,9 @@ Given /^I am logged in with email "([^\"]*)" and password "([^\"]*)"$/ do |email
     click_button "Sign in"
   end
 end
+Given /^I am logged in as "([^\"]*)" with password "([^\"]*)"$/ do |username, password|
+  unless username.blank?
+    user = User.find_by_name(username)
+    step "I am logged in with email \"#{user.email}\" and password \"#{password}\""
+  end
+end
