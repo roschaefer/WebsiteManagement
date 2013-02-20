@@ -5,14 +5,11 @@ Feature: Manage Users
 
     Scenario: Show profile
         Given the following users exist
-          | name  | email             | role   |
-          | bob   | bob@example.com   | client |
-          | alice | alice@example.com | client |
-          | admin | admin@example.com | admin  |
-          #| admin    | admin |
-        #Given I am logged in as bob
-        #When I visit profile for bob
-        #Then I should see "Bob"
+          | name | email           | password   | password_confirmation | role   |
+          | Bob  | bob@example.com | secret1234 | secret1234            | client |
+        Given I am logged in with email "bob@example.com" and password "secret1234"
+        When I go to Bob's profile page
+        Then I should see "Bob"
 
 
     #Given the following user records
