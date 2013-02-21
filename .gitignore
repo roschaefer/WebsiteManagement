@@ -1,8 +1,10 @@
 ### custom ignores
 
-# since it contains the static data passed to the rails app
+### since it contains the static data passed to the rails app
 /app/views/websites/*
-
+### but this one directory should be included
+!/app/views/websites/onlyForTestPurposes/
+!/app/views/websites/onlyForTestPurposes/*
 
 
 

@@ -31,6 +31,10 @@ module NavigationHelpers
     when /^(.*)'s profile page$/i
       user_path(User.find_by_name($1))
 
+    ### custom static website mapping
+    when /^the static website "([^"]*)"$/i
+      website_path($1)
+
     else
       begin
         page_name =~ /the (.*) page/

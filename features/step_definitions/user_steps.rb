@@ -8,7 +8,11 @@ Given /^I am logged in with email "([^\"]*)" and password "([^\"]*)"$/ do |email
 end
 Given /^I am logged in as "([^\"]*)" with password "([^\"]*)"$/ do |username, password|
   unless username.blank?
-    user = User.find_by_name(username)
+    begin
+        user = User.find_by_name!(username)
+    rescue Object => e
+      raise "Can't find a user with name \"#{username}\"."
+    end
     step "I am logged in with email \"#{user.email}\" and password \"#{password}\""
   end
 end
