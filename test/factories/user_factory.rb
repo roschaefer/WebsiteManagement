@@ -10,4 +10,13 @@ FactoryGirl.define do
     #end                  # avoid email confirmation in test development
     confirmed_at          Time.now
   end
+
+  factory :admin_user, class: User do
+    name                  "Admin"
+    sequence(:email){|n|  "admin@example.com" }
+    role                  "admin"
+    password              "initial0"
+    password_confirmation "initial0"
+    confirmed_at          Time.now
+  end
 end
