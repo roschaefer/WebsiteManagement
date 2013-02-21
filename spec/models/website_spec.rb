@@ -17,4 +17,29 @@ describe Website do
     @website.folder  = "aFolder"
     @website.should be_valid
   end
+
+end
+
+describe "The Website Model" do
+  it "should yield all websites that contain a file name" do
+    includingFolders = [
+      'certainFolder/',
+      'certainFolder',
+      'certainFolder/certainSubfolder/',
+      'certainFolder/certainSubfolder/certainFile'
+    ]
+    includedWebsites = includingFolders.collect { |folder| FactoryGirl.create(:website, :folder => folder)}
+    excludingFolders = [
+      'certainFolder/certainSubfolder/certainFileA',
+      'anotherFolder/certainSubfolder/certainFile',
+      'a'
+    ]
+    excludedWebsites = excludingFolders.collect { |folder| FactoryGirl.create(:website, :folder => folder)}
+
+    Website.all.size.should be 7
+    sites = Website.find_all_containing "certainFolder/certainSubfolder/certainFile"
+    sites.size.should be 4
+    sites.should eql(includedWebsites)
+    sites.should_not eql(excludedWebsites)
+  end
 end

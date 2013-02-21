@@ -12,7 +12,7 @@
 <% @websites.each do |website| %>
   <tr>
     <td><%= website.name%></td>
-    <td><%= website.folder%></td>
+    <td><%= link_to "Link", website_path("#{website.folder}/index.html")%></td>
   </tr>
 <% end %>
 </table>

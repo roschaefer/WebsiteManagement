@@ -35,6 +35,7 @@ class Ability
       can :manage, :all
     elsif user.role? :client
       can :read, User, :id => user.id
+      can :read, Website, :user_id => user.id
     else
       # everything restricted by default
     end
