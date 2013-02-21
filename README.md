@@ -14,12 +14,14 @@ And this is my solution to it.
     rake db:migrate
     rails server
 
-Now navigate to the admin interface (=> /admin) and log in with username "admin" and password "initial0". Change your password!
+Now navigate to the admin interface (=> /admin) and log in with username "admin" and password "initial0".
+
+Change your password!
 
 ## Workflow
 
 1. (Manual Work) Place a static html folder under "app/views/websites/"
-2. Log in as admin an visit the admin interface
+2. Log in as admin and visit the admin interface
 3. Create a website resource for a certain client and type in a folder attribute that matches the corresponding folder from step 1.
 4. Now your client has access to your static website!
 
