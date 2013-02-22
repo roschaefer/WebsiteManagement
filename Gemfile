@@ -24,7 +24,8 @@ gem 'high_voltage'
 # backend
 gem 'activeadmin'
 
-
+# views
+gem 'haml-rails'
 
 # -------------------------
 
