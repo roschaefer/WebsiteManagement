@@ -127,7 +127,10 @@ GEM
       activerecord (~> 3.1)
       activesupport (~> 3.1)
       polyamorous (~> 0.5.0)
+    metaclass (0.0.1)
     mime-types (1.21)
+    mocha (0.13.2)
+      metaclass (~> 0.0.1)
     multi_json (1.6.1)
     nokogiri (1.5.6)
     orm_adapter (0.4.0)
@@ -225,6 +228,7 @@ DEPENDENCIES
   haml-rails
   high_voltage
   jquery-rails
+  mocha
   pickle
   rails (= 3.2.12)
   rspec-rails (>= 2.0.1)
