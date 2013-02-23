@@ -24,8 +24,9 @@ Feature: Get access to static websites
             | Jim      | see     |
             | John     | not see |
             | MrAdmin  | see     |
-    @wip
+
     Scenario: See links on the user's profile
+        Given I am logged in as "Jim"
         When I go to Jim's profile page
         And I click "TestWebsite"
         Then I should be on the static website "onlyForTestPurposes/index.html"
