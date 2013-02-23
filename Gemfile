@@ -22,6 +22,11 @@ gem 'cancan'
 # static files
 gem 'high_voltage'
 
+# file upload (for static websites)
+gem 'carrierwave'
+# custom hooks in carrierwave
+gem 'rubyzip'
+
 # backend
 gem 'activeadmin'
 

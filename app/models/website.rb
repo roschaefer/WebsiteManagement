@@ -1,6 +1,7 @@
 class Website < ActiveRecord::Base
-  attr_accessible :folder, :name, :user_id
+  attr_accessible :folder, :name, :files, :user_id
   belongs_to :user
+  mount_uploader :files, FilesUploader
 
   validates :folder, :name, :presence => true
 
