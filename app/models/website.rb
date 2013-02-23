@@ -7,4 +7,8 @@ class Website < ActiveRecord::Base
   def self.find_all_containing(collection = Website.all, filename)
       collection.find_all {|site| filename.start_with? site.folder}
   end
+
+  def root_link
+    "#{folder}/index.html"
+  end
 end

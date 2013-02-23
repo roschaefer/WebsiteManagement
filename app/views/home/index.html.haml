@@ -1,0 +1,8 @@
+%h1 Website Management
+%p Welcome!
+- if user_signed_in?
+  %li
+    = button_to 'My Profile', user_path(current_user), :method => :get
+- else
+  %li
+    = button_to 'Log In', new_user_session_path, :method => :get

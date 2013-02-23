@@ -21,3 +21,9 @@ Feature: Manage Users
       |          | Bob     | not see "Bob"   |
       | Bob      | Alice   | not see "Alice" |
       | Admin    | Alice   | see "Alice"     |
+
+    Scenario: Logout a user
+        Given I am logged in as "Bob" with password "secret1234"
+        And I go to Bob's profile page
+        And I click "Logout"
+        Then I should be on the home page

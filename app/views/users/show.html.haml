@@ -1,0 +1,7 @@
+%h1= @user.name
+%h3
+  My Websites
+  %table
+    - @websites.each do |website|
+      %tr
+        %td= link_to website.name, website_path(website.root_link)
