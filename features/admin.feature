@@ -8,6 +8,7 @@ Feature: Manage Admin Interface
           | name  | password   | password_confirmation | role   |
           | Me    | secret1234 | secret1234            | admin  |
           | guest | secret1234 | secret1234            | client |
+
     Scenario: Access to Admin Interface
         Given I am logged in as "Me" with password "secret1234"
         When I go to the admin root page
@@ -15,7 +16,15 @@ Feature: Manage Admin Interface
         Then I should see "Websites"
         Then I should see "Users"
 
-    Scenario: No Access to Admin Interface
-        Given I am logged in as "guest" with password "secret1234"
+    Scenario Outline: No Access to Admin Interface
+        Given I am logged in as "<username>" with password "secret1234"
         When I go to the admin root page
-        Then I should not be on the admin root page
+        Then I should <action1> on the admin root page
+        But I should <action2> on the home page
+        Examples: Unauthorized Users
+            | username | action1 | action2 |
+            | guest    | not be  | be      |
+            |          | not be  | be      |
+        Examples: Authorized Users
+            | username | action1 | action2 |
+            | Me       | be      | not be  |

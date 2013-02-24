@@ -60,9 +60,7 @@ ActiveAdmin.setup do |config|
 
   ### custom authentication method
   def authenticate_admin_user!
-    if current_user.nil?  or not current_user.role? :admin
-      redirect_to root_url
-    end
+      authorize! :manage, :all
   end
 
 
