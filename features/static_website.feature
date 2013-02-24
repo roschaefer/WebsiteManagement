@@ -26,7 +26,7 @@ Feature: Get access to static websites
             | MrAdmin  | see     |
 
     Scenario: See links on the user's profile
-        Given I am logged in as "Jim"
+        Given I am logged in as "Jim" with password "secret1234"
         When I go to Jim's profile page
         And I click "TestWebsite"
         Then I should be on the static website "onlyForTestPurposes/index.html"
