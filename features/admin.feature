@@ -20,11 +20,12 @@ Feature: Manage Admin Interface
         Given I am logged in as "<username>" with password "secret1234"
         When I go to the admin root page
         Then I should <action1> on the admin root page
-        But I should <action2> on the home page
+        And I should <action2> on the home page
+        And I should <action3> "not authorized"
         Examples: Unauthorized Users
-            | username | action1 | action2 |
-            | guest    | not be  | be      |
-            |          | not be  | be      |
+            | username | action1 | action2 | action3 |
+            | guest    | not be  | be      | see     |
+            |          | not be  | be      | see     |
         Examples: Authorized Users
-            | username | action1 | action2 |
-            | Me       | be      | not be  |
+            | username | action1 | action2 | action3 |
+            | Me       | be      | not be  | not see |
