@@ -17,6 +17,29 @@ describe Website do
 
 end
 
+describe "A website should in case of a file upload" do
+  before(:each) do
+    @website = FactoryGirl.create(:website_with_data, :folder => "")
+  end
+
+  after(:each) do
+    @website.destroy
+  end
+
+  it "assign the uploaded filename to the folder, if the folder is blank" do
+    @website.folder = ""
+    @website.save
+    @website.folder.should be_eql("testWebsite")
+  end
+  it "but leave the folder attribute as is, if it's provided" do
+    @website.folder = "something"
+    @website.save
+    @website.folder.should be_eql("something")
+  end
+end
+
+
+
 describe "The Website Model" do
   it "should yield all websites that contain a file name" do
     includedWebsites = [
