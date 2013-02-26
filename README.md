@@ -20,12 +20,12 @@ Change your password!
 
 ## Workflow
 
-1. (Manual Work) Place a static html folder under "app/views/websites/"
+1. Zip a folder with static html content (at least "index.html")
 2. Log in as admin and visit the admin interface
-3. Create a website resource for a certain client and type in a folder attribute that matches the corresponding folder from step 1.
-4. Now your client has access to your static website!
+3. Create a website for your client and upload the .zip archive
+4. Now your client visit to your static website!
 
-Every user has his own profile page. Clients can navigate to their associated websites and admins can see all websites.
+Every user has his own profile page. Clients can navigate to their associated websites and admins have access to all user profiles and static websites.
 
 ## Test
 
