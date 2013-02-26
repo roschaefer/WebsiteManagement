@@ -24,3 +24,10 @@ Feature: Grant Clients Access to static websites
         And I go to Justin's profile page
         And I click "IamATestwebsite"
         Then I should see "This is what I want to see"
+
+    Scenario: Client has access to assigned website
+        Given I am logged in as "Justin" with password "secret1234"
+        And a website named "AnotherTestWebsite" was assigned to "Justin"
+        And I go to Justin's profile page
+        And I click "AnotherTestWebsite"
+        Then I should see "This is what I want to see"
