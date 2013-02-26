@@ -7,7 +7,7 @@ FactoryGirl.define do
 
   factory :website_with_data, class: Website do
     name   "DataWebsite"
-    folder "aFolder"
+    folder ""
     files { fixture_file_upload(Rails.root.join('test','fixtures','testWebsite.zip').to_s, 'application/zip') }
   end
 end

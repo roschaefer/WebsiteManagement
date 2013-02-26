@@ -6,7 +6,7 @@ Feature: Get access to static websites
 
     Background:
         Given the following files are located in the websites folder
-            | path                           | content                             |
+            | path                   | content                             |
             | testWebsite/index.html | <h1>This is what I want to see</h1> |
         And the following users exist:
             | name    | role   |
