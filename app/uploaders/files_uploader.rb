@@ -6,20 +6,14 @@ require 'zip/zip'
 
 class FilesUploader < CarrierWave::Uploader::Base
 ### custom hook
-before :store, :assign_foldername
 after :store, :extract_archive
 
 
 ### custom methods
 
-  def assign_foldername(file)
-    file_basename = File.basename(current_path, ".*")
-    puts file_basename
-    model.folder = file_basename
-    puts model.inspect
-  end
   def extract_archive(file)
-    unzip_file(current_path, Rails.root.join('app','views', HighVoltage.content_path).to_s)
+    destination = Rails.root.join('app','views', HighVoltage.content_path).to_s
+    unzip_file(current_path, destination)
   end
   def unzip_file (file, destination)
     Zip::ZipFile.open(file) { |zip_file|
@@ -50,7 +44,7 @@ after :store, :extract_archive
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "tmp/uploads/"
+    "uploads/"
   end
 
 

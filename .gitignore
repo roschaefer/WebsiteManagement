@@ -3,8 +3,8 @@
 ### since it contains the static data passed to the rails app
 /app/views/websites/*
 ### but this one file should be included
-!/app/views/websites/onlyForTestPurposes/
-!/app/views/websites/onlyForTestPurposes/.gitkeep
+!/app/views/test/websites/
+!/app/views/test/websites/.gitkeep
 
 
 

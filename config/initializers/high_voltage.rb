@@ -1,2 +1,6 @@
 HighVoltage.routes = false
-HighVoltage.content_path = "websites/"
+if Rails.env.test? || Rails.env.cucumber?
+  HighVoltage.content_path = "#{Rails.env}/websites/"
+else
+  HighVoltage.content_path = "websites/"
+end
