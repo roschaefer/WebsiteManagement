@@ -6,12 +6,19 @@ require 'zip/zip'
 
 class FilesUploader < CarrierWave::Uploader::Base
 ### custom hook
+before :store, :assign_foldername
 after :store, :extract_archive
 
 
-### custom extract archive method
+### custom methods
+
+  def assign_foldername(file)
+    file_basename = File.basename(current_path, ".*")
+    puts file_basename
+    model.folder = file_basename
+    puts model.inspect
+  end
   def extract_archive(file)
-    puts "Going into hook ..."
     unzip_file(current_path, Rails.root.join('app','views', HighVoltage.content_path).to_s)
   end
   def unzip_file (file, destination)
@@ -22,6 +29,7 @@ after :store, :extract_archive
         zip_file.extract(f, f_path) unless File.exist?(f_path)
       }
     }
+    File.delete(file)
   end
 
 
@@ -42,7 +50,7 @@ after :store, :extract_archive
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "app/views/#{HighVoltage.content_path}#{model.folder}"
+    "tmp/uploads/"
   end
 
 
@@ -68,9 +76,9 @@ after :store, :extract_archive
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
-  # def extension_white_list
-  #   %w(jpg jpeg gif png)
-  # end
+  def extension_white_list
+    %w(zip)
+  end
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
