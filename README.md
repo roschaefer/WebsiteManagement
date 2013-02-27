@@ -11,10 +11,11 @@ And this is my solution to it.
 ## Install
 
     git clone git://github.com/teamaker/WebsiteManagement.git
+    bundle install
     rake db:migrate
     rails server
 
-Now navigate to the admin interface (=> /admin) and log in with username "admin" and password "initial0".
+Now navigate to the admin interface (=> /admin) and log in as admin with email "admin@example.com" and password "initial0".
 
 Change your password!
 
@@ -22,8 +23,8 @@ Change your password!
 
 1. Zip a folder with static html content (at least "index.html")
 2. Log in as admin and visit the admin interface
-3. Create a website for your client and upload the .zip archive
-4. Now your client visit to your static website!
+3. Go to the websites page, create a website for a client and upload the .zip archive
+4. Now your client can visit your static website!
 
 Every user has his own profile page. Clients can navigate to their associated websites and admins have access to all user profiles and static websites.
 
