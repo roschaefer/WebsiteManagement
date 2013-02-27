@@ -15,7 +15,7 @@ And this is my solution to it.
     rake db:migrate
     rails server
 
-Now navigate to the admin interface (=> /admin) and log in as admin with email "admin@example.com" and password "initial0".
+Now navigate to the admin interface (=> /admin) and log in as admin with email `admin@example.com` and password `initial0`
 
 Change your password!
 
