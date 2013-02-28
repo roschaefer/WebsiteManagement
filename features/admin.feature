@@ -5,10 +5,10 @@ Feature: Manage Admin Interface
 
     Background:
         Given the following users exist
-          | name  | password   | password_confirmation | role   |
-          | MrAdmin    | secret1234 | secret1234            | admin  |
-          | guest | secret1234 | secret1234            | client |
-          | James | secret1234 | secret1234            | client |
+          | name    | password   | password_confirmation | role   |
+          | MrAdmin | secret1234 | secret1234            | admin  |
+          | guest   | secret1234 | secret1234            | client |
+          | James   | secret1234 | secret1234            | client |
 
     Scenario: Access to Admin Interface
         Given I am logged in as "MrAdmin" with password "secret1234"
@@ -29,7 +29,14 @@ Feature: Manage Admin Interface
             |          | not be  | be      | see     |
         Examples: Authorized Users
             | username | action1 | action2 | action3 |
-            | MrAdmin       | be      | not be  | not see |
+            | MrAdmin  | be      | not be  | not see |
+
+    Scenario: Navigate to admin interface
+        Given I am logged in as "MrAdmin" with password "secret1234"
+        And I go to MrAdmin's profile page
+        And I click "Admin Interface"
+        Then I should be on the admin root page
+
 
     Scenario: Change the role of a user
         Given I am logged in as "MrAdmin" with password "secret1234"
@@ -37,7 +44,7 @@ Feature: Manage Admin Interface
         And I click "Users"
         And I click "3"
         And I click "Edit User"
-        And I fill in "admin" for "Role"
+        And I select "admin" from "Role"
         And I press "Update User"
         And I should see "User was successfully updated"
         And I click "Logout"

@@ -5,6 +5,6 @@ ActiveAdmin.register Website do
       f.input :name
       f.input :files, :as => :file
     end
-  f.buttons
+  f.actions
   end
 end
