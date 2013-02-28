@@ -37,6 +37,10 @@ Feature: Manage Admin Interface
         And I click "Admin Interface"
         Then I should be on the admin root page
 
+    Scenario: Don't navigate to admin interface
+        Given I am logged in as "guest" with password "secret1234"
+        And I go to guest's profile page
+        Then I should not see "Admin Interface"
 
     Scenario: Change the role of a user
         Given I am logged in as "MrAdmin" with password "secret1234"
