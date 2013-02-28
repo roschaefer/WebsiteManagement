@@ -10,9 +10,12 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
 
-
-  ###
   ROLES = %w[client admin]
+  ###
+  def self.ROLES
+    ROLES
+  end
+
   attr_accessible :name, :role
   has_many :websites
   validates :name, :presence => true

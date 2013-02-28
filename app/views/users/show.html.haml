@@ -5,3 +5,5 @@
     - @websites.each do |website|
       %tr
         %td= link_to website.name, website_path(website.root_link)
+
+  %p= link_to "Admin Interface", admin_root_path if current_user.role? :admin
