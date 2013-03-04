@@ -3,7 +3,7 @@ ActiveAdmin.register User do
     f.inputs "Details" do
       f.input  :name
       f.input  :email
-      f.input :role, :as => :select, :collection => User.ROLES
+      f.input :role, :as => :select, :collection => User::ROLES
     end
   f.actions
   end
