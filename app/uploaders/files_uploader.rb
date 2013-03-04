@@ -12,13 +12,14 @@ after :store, :extract_archive
 ### custom methods
 
   def extract_archive(file)
-    destination = Rails.root.join('app','views', HighVoltage.content_path).to_s
-    unzip_file(current_path, destination)
+    destination = Rails.root.join('app','views', HighVoltage.content_path)
+    destination += model.folder
+    unzip_file(current_path, destination.to_s)
   end
   def unzip_file (file, destination)
     Zip::ZipFile.open(file) { |zip_file|
       zip_file.each { |f|
-        f_path=File.join(destination, f.name)
+        f_path = File.join(destination, f.name)
         FileUtils.mkdir_p(File.dirname(f_path))
         zip_file.extract(f, f_path) unless File.exist?(f_path)
       }

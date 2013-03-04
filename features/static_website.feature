@@ -7,7 +7,7 @@ Feature: Get access to static websites
     Background:
         Given the following files are located in the websites folder
             | path                   | content                             |
-            | testWebsite/index.html | <h1>This is what I want to see</h1> |
+            | testWebsite/index.html | <h1>Here is some content to test against</h1> |
         And the following users exist:
             | name    | role   |
             | Jim     | client |
@@ -18,7 +18,7 @@ Feature: Get access to static websites
     Scenario Outline: See static websites
         Given I am logged in as "<username>" with password "secret1234"
         When I go to the static website "testWebsite/index.html"
-        Then I should <see?> "This is what I want to see"
+        Then I should <see?> "Here is some content to test against"
         Examples:
             | username | see?    |
             | Jim      | see     |

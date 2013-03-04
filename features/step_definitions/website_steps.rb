@@ -4,5 +4,5 @@ Given /^a website named "([^\"]*)" was assigned to "([^\"]*)"$/ do |website, use
   rescue Object => e
     raise "Can't find a user with name \"#{username}\"."
   end
-  step "a website with data exists with name: \"#{website}\", user_id: \"#{user.id}\""
+  step "a website exists with name: \"#{website}\", user_id: \"#{user.id}\""
 end
