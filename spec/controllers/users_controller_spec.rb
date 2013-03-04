@@ -22,7 +22,7 @@ describe UsersController do
     end
     it "populates an array of all websites for an admin" do
       @user.role= 'admin'; @user.save!
-      @anotherwebsite = FactoryGirl.create(:website, :user => nil)
+      @anotherwebsite = FactoryGirl.create(:website, :user => nil, :folder => "anyOtherFolder")
       get :show, id: @user
       assigns(:websites).should eq([@website, @anotherwebsite])
     end

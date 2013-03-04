@@ -11,7 +11,7 @@ Feature: Grant Clients Access to static websites
             | name    | role   |
             | Justin  | client |
             | MrAdmin | admin  |
-        And the website with data exists with name: "IamATestwebsite"
+        And the website exists with name: "IamATestwebsite"
 
     Scenario: Assign a website to a client
         Given I am logged in as "MrAdmin" with password "secret1234"

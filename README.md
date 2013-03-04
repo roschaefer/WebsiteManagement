@@ -21,12 +21,24 @@ Change your password!
 
 ## Workflow
 
-1. Zip a folder with static html content (at least "index.html")
+1. Zip some static html content (at least a file "index.html")
 2. Log in as admin and visit the admin interface
 3. Go to the websites page, create a website for a client and upload the .zip archive
 4. Now your client can visit your static website!
 
 Every user has his own profile page. Clients can navigate to their associated websites and admins have access to all user profiles and static websites.
+
+**Attention!**
+The zip file must contain the .html files itself, no parent folder is allowed!
+
+<pre><code>
+    Example:
+        myWebsite.zip
+         |- index.html
+         |- about.html
+         |- contact.html
+</code></pre>
+
 
 ## Test
 
