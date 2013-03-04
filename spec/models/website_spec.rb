@@ -36,6 +36,15 @@ describe "A website should in case of a file upload" do
     @website.save
     @website.folder.should be_eql("something")
   end
+  it "should ensure, that no other files will be overwritten" do
+    @anotherWebsite = FactoryGirl.build(:website_with_data, :folder => "")
+    @anotherWebsite.should_not be_valid
+    expect {@anotherWebsite.save!}.to raise_error{ActiveRecord::RecordInvalid}
+  end
+  it "should clean all associated files if the website is deleted" do
+      FileUtils.expects(:rm_rf).with(Rails.root.join('app','views', HighVoltage.content_path, @website.folder).to_s)
+      @website.destroy
+  end
 end
 
 
