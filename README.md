@@ -11,6 +11,7 @@ And this is my solution to it.
 ## Install
 
     git clone git://github.com/teamaker/WebsiteManagement.git
+    cd WebsiteManagement
     bundle install
     rake db:migrate
     rails server
