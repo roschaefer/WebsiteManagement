@@ -12,32 +12,26 @@ Feature: Grant Clients Access to static websites
             | Justin  | client |
             | MrAdmin | admin  |
         And the website exists with name: "IamATestwebsite"
+        And the website with a folder zipped exists with name: "IamAnotherTestwebsite"
 
-    Scenario: Assign a website to a client
+    Scenario Outline: Assign a website to a client
         Given I am logged in as "MrAdmin" with password "secret1234"
         And I go to the admin root page
         And I click "Websites"
-        Then I should see "IamATestwebsite"
-        When I click "Edit"
-        And I select "Justin" from "User"
-        And I press "Update Website"
-        And I go to Justin's profile page
-        And I click "IamATestwebsite"
-        Then I should see "This is what I want to see"
-    @wip
-    Scenario: Assign a website that consist of a zipped folder
-        Given the website with a folder zipped exists with name: "IamAnotherTestwebsite"
-        And I am logged in as "MrAdmin" with password "secret1234"
-        And I go to the admin root page
-        And I click "Websites"
-        And I click "2"
-        Then I should see "IamAnotherTestwebsite"
+        And I click "<id>"
+        Then I should see "<website_name>"
         When I click "Edit Website"
         And I select "Justin" from "User"
         And I press "Update Website"
         And I go to Justin's profile page
-        And I click "IamAnotherTestwebsite"
-        Then I should see "I am the website that was zipped in a whole directory"
+        And I click "<website_name>"
+        Then I should see "<content>"
+        Examples: zip archive with flat hierarchy
+            | id | website_name    | content                    |
+            | 1  | IamATestwebsite | This is what I want to see |
+        Examples: zip archive containing one folder with html content
+            | id | website_name          | content                                               |
+            | 2  | IamAnotherTestwebsite | I am the website that was zipped in a whole directory |
 
     Scenario: Client has access to assigned website
         Given I am logged in as "Justin" with password "secret1234"
