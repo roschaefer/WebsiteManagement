@@ -18,13 +18,25 @@ after :store, :extract_archive
   end
   def unzip_file (file, destination)
     Zip::ZipFile.open(file) { |zip_file|
-      zip_file.each { |f|
-        f_path = File.join(destination, f.name)
-        FileUtils.mkdir_p(File.dirname(f_path))
-        zip_file.extract(f, f_path) unless File.exist?(f_path)
-      }
+      moveAllItemsOneDirectoryUpwards(zip_file) if zipContainsUnambiguousFolder?(zip_file)
+        zip_file.each { |f|
+          f_path = File.join(destination, f.name)
+          FileUtils.mkdir_p(File.dirname(f_path))
+          zip_file.extract(f, f_path) unless File.exist?(f_path)
+        }
     }
     File.delete(file)
+  end
+  def zipContainsUnambiguousFolder?(zip_file)
+    basename = File.basename(zip_file.name, ".zip")
+    zip_file.all? {|f| f.name.starts_with? basename}
+  end
+  def moveAllItemsOneDirectoryUpwards(zip_file)
+        basename = File.basename(zip_file.name, ".zip")
+        zip_file.each { |f|
+          newFileName = f.name.sub(basename, "")
+          zip_file.rename(f, newFileName)
+        }
   end
 
 
