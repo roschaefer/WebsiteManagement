@@ -29,18 +29,6 @@ Change your password!
 
 Every user has his own profile page. Clients can navigate to their associated websites and admins have access to all user profiles and static websites.
 
-**Attention!**
-The zip file must contain the .html files itself, no parent folder is allowed!
-
-<pre><code>
-    Example:
-        myWebsite.zip
-         |- index.html
-         |- about.html
-         |- contact.html
-</code></pre>
-
-
 ## Test
 
 ##### Run unit tests:
