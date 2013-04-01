@@ -27,6 +27,12 @@ Feature: Get access to static websites
 
     Scenario: See links on the user's profile
         Given I am logged in as "Jim" with password "secret1234"
+        And there is at the moment at least one more website for Jim
         When I go to Jim's profile page
         And I click "TestWebsite"
+        Then I should be on the static website "testWebsite/index.html"
+
+    Scenario: Get redirected if there is only one link
+        Given I am logged in as "Jim" with password "secret1234"
+        When I go to Jim's profile page
         Then I should be on the static website "testWebsite/index.html"

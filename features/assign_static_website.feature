@@ -13,6 +13,7 @@ Feature: Grant Clients Access to static websites
             | MrAdmin | admin  |
         And the website exists with name: "IamATestwebsite"
         And the website with a folder zipped exists with name: "IamAnotherTestwebsite"
+        And there is at the moment at least one more website for Justin
 
     Scenario Outline: Assign a website to a client
         Given I am logged in as "MrAdmin" with password "secret1234"
