@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-  random_password = (0...12).map{(65+rand(26)).chr}.join
+  random_password = SecureRandom.hex(12)
   form do |f|
     f.inputs "Details" do
       f.input  :name
