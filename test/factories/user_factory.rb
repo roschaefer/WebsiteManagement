@@ -5,10 +5,6 @@ FactoryGirl.define do
     role                  "client"
     password              "secret1234"
     password_confirmation "secret1234"
-    #after(:create) do |user|
-      #user.confirm!
-    #end                  # avoid email confirmation in test development
-    confirmed_at          Time.now
   end
 
   factory :admin_user, class: User do
@@ -17,6 +13,5 @@ FactoryGirl.define do
     role                  "admin"
     password              "initial0"
     password_confirmation "initial0"
-    confirmed_at          Time.now
   end
 end

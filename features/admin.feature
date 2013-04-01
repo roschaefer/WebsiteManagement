@@ -56,3 +56,13 @@ Feature: Manage Admin Interface
         And I go to the admin root page
         Then I should be on the admin root page
         And I should see "Dashboard"
+
+    Scenario: Create a new user
+        Given I am logged in as "MrAdmin" with password "secret1234"
+        When I go to the admin root page
+        And I click "Users"
+        And I click "New User"
+        And I fill in "aNewUser" for "Name"
+        And I fill in "aNewUserEmail@example.com" for "Email"
+        And I press "Create User"
+        Then I should see "User was successfully created"
