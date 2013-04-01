@@ -22,9 +22,16 @@ Change your password!
 
 ## Workflow
 
+#### Create and notify a user
+
+1. Log in as admin and visit the admin interface
+2. Go to the users page and create a user there - a mail with username and random password will be send to the specified email address
+
+#### Create and assign a website
+
 1. Zip some static html content (at least a file "index.html")
 2. Log in as admin and visit the admin interface
-3. Go to the websites page, create a website for a client and upload the .zip archive
+3. Go to the websites page, create a website for your client and upload the .zip archive
 4. Now your client can visit your static website!
 
 Every user has his own profile page. Clients can navigate to their associated websites and admins have access to all user profiles and static websites.
