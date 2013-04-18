@@ -1,5 +1,6 @@
 WebsiteManagement
 =================
+[![Build Status](https://travis-ci.org/teamaer/WebsiteManagement.png)](https://travis-ci.org/teamaker/WebsiteManagement)
 ## Background
 
 My brother who designs and styles static websites asked me: "Is it possible to have a simple parent web application where I can host the current state of my work and grant my clients access to their dedicated websites?"
