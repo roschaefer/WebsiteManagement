@@ -45,9 +45,7 @@ Feature: Manage Admin Interface
     Scenario: Change the role of a user
         Given I am logged in as "MrAdmin" with password "secret1234"
         When I go to the admin root page
-        And I click "Users"
-        And I click "3"
-        And I click "Edit User"
+        And I navigate to the user management for "James"
         And I select "admin" from "Role"
         And I press "Update User"
         And I should see "User was successfully updated"

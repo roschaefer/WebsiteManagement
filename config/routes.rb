@@ -1,13 +1,13 @@
 WebsiteManagement::Application.routes.draw do
 
+  devise_for :users
+  root :to => "home#index"
   ActiveAdmin.routes(self)
 
-  devise_for :users
   resources :users, :only => :show
 
   get "home/index"
 
-  root :to => "home#index"
 
   ### high_voltage routes
   match "/websites/*id" => 'websites#show', :as => :website, :format => false

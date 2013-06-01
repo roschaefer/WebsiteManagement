@@ -18,8 +18,7 @@ Feature: Grant Clients Access to static websites
     Scenario Outline: Assign a website to a client
         Given I am logged in as "MrAdmin" with password "secret1234"
         And I go to the admin root page
-        And I click "Websites"
-        And I click "<id>"
+        And I navigate to the website management path for "<website_name>"
         Then I should see "<website_name>"
         When I click "Edit Website"
         And I select "Justin" from "User"

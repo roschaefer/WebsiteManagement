@@ -6,11 +6,19 @@ source 'https://rubygems.org'
 # -------------------------
 gem 'therubyracer'
 
+gem 'factory_girl_rails'
+
 group :development, :test do
+  gem 'pry'
+  gem 'capybara-screenshot'
+  gem 'selenium-webdriver'
+  gem 'capybara-firebug'
+  gem 'poltergeist'
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem "rspec-rails", ">= 2.0.1"
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
-  gem 'factory_girl_rails'
   gem 'pickle'
   gem "mocha", :require => false
 end
@@ -28,7 +36,7 @@ gem 'carrierwave'
 gem 'rubyzip'
 
 # backend
-gem 'activeadmin'
+gem 'activeadmin',  '0.5.1'
 
 # views
 gem 'haml-rails'
@@ -37,19 +45,20 @@ gem 'haml-rails'
 
 
 
-gem 'rails', '3.2.12'
+gem 'rails'
+
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem 'pg'
 
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'sass-rails'
+  gem 'coffee-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
@@ -57,7 +66,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails', '2.3.0'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
