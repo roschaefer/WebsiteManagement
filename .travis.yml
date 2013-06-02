@@ -1,7 +1,9 @@
 language: ruby
 rvm:
-    - 2.0.0
+  - 2.0.0
 script:
-    - RAILS_ENV=test bundle exec rake db:test:prepare --trace
-    - bundle exec rake spec
-    - bundle exec rake cucumber:all
+  - RAILS_ENV=test bundle exec rake db:test:prepare --trace
+  - bundle exec rake spec
+  - bundle exec rake cucumber:all
+before_script:
+  - psql -c 'create database website_mgmt_test;' -U postgres

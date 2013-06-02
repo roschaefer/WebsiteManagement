@@ -1,6 +1,7 @@
 default: &default
   adapter: postgresql
   database: website_mgmt_development
+  user: postgres
   pool: 5
   encoding: unicode
 
